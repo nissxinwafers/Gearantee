@@ -30,8 +30,8 @@ The tracker contains 44 leaf features. Group headings such as 2.00 and 4.00 are 
 
 | Status | Count |
 | --- | --- |
-| Done | 5 |
-| In Review | 17 |
+| Done | 9 |
+| In Review | 13 |
 | In Progress | 0 |
 | Not Started | 22 |
 | Blocked | 0 |
@@ -46,7 +46,7 @@ Shared rows count for each assigned member.
 | Member 2 — Bansag | 13 (1.00, 9–12, 25–28, 52–55) | 1 |
 | Member 3 — Laroco | 12 (1.00, 3, 5–7, 14–18, 49–50) | 5 |
 | Member 4 — Cancencia | 7 (30–32, 39–42) | 0 |
-| Member 5 — Cataraja | 9 (34–37, 44–47, 56) | 0 |
+| Member 5 — Cataraja | 9 (34–37, 44–47, 56) | 4 |
 
 ## WBS Feature Tracker
 
@@ -85,10 +85,10 @@ Shared rows count for each assigned member.
 | 31.00 | Update Borrower's Records | Cancencia | 9/29/2026 | 10/2/2026 | 3 | | | Not Started | | M3 |
 | 32.00 | Update Eligibility Status | Cancencia | 9/29/2026 | 10/1/2026 | 2 | | | Not Started | | M3 |
 | **33.00** | **Transactions: Equipment Reservation** | | | | | | | | | |
-| 34.00 | Search & View Available Items Page | Cataraja | 10/6/2026 | 10/7/2026 | 1 | 10/7/2026 | | In Review | #26 | M4 |
-| 35.00 | Create and Submit Reservation Request | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | | In Review | #26 | M4 |
-| 36.00 | View Reservation Status | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | | In Review | #26 | M4 |
-| 37.00 | Cancel Reservation | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | | In Review | #26 | M4 |
+| 34.00 | Search & View Available Items Page | Cataraja | 10/6/2026 | 10/7/2026 | 1 | 10/7/2026 | 10/9/2026 | Done | #26 | M4 |
+| 35.00 | Create and Submit Reservation Request | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | 10/9/2026 | Done | #26 | M4 |
+| 36.00 | View Reservation Status | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | 10/9/2026 | Done | #26 | M4 |
+| 37.00 | Cancel Reservation | Cataraja | 10/6/2026 | 10/8/2026 | 2 | 10/7/2026 | 10/9/2026 | Done | #26 | M4 |
 | **38.00** | **Transactions: Approval and Release** | | | | | | | | | |
 | 39.00 | View Reservation Requests | Cancencia | 10/9/2026 | 10/11/2026 | 2 | | | Not Started | | M5 |
 | 40.00 | Approve Reservation Requests | Cancencia | 10/9/2026 | 10/10/2026 | 1 | | | Not Started | | M5 |
@@ -211,14 +211,14 @@ Shared rows count for each assigned member.
 
 ### Tasks
 
-- [ ] Build the borrower equipment catalog with search and category/status filters.
-- [ ] Show equipment details and current availability.
-- [ ] Build the reservation form: item, requested release date/time, requested return date/time, and purpose.
-- [ ] Validate date/time ranges and borrower eligibility.
-- [ ] Implement reservation status: Pending, Approved, Rejected, Cancelled, and Expired.
-- [ ] Implement overlap detection for approved reservations and active loans of the same item.
+- [x] Build the borrower equipment catalog with search and category/status filters.
+- [x] Show equipment details and current availability.
+- [x] Build the reservation form: item, requested release date/time, requested return date/time, and purpose.
+- [x] Validate date/time ranges and borrower eligibility.
+- [x] Implement reservation status: Pending, Approved, Rejected, Cancelled, and Expired.
+- [x] Implement overlap detection for approved reservations and active loans of the same item.
 - [ ] Build the borrower’s My Reservations and Active Loans pages.
-- [ ] Allow borrowers to cancel eligible pending reservations.
+- [x] Allow borrowers to cancel eligible pending reservations.
 
 ### Completion criteria
 
@@ -386,3 +386,4 @@ The first version is complete when borrowers can securely reserve one available 
 | 10/8/2026 | WBS 37.00: replaced the browser confirm with a reusable confirmation modal (`Components/_ConfirmDialog` + `confirm-dialog.js`) before cancelling a reservation | Cataraja |
 | 10/8/2026 | Moved WBS 34.00–37.00 to In Review for PR #26: borrower catalog, reservation requests, My Reservations status, and cancel with confirmation modal; 69 new tests | Cataraja |
 | 10/9/2026 | Addressed PR #26 review for WBS 34.00–37.00 (still In Review): merged `staging` (PR #25) and resolved conflicts; RES-01 serializes duplicate-check + insert per borrower/item with an app lock; RES-02/PERF-05 expire stale requests with one conditional UPDATE; AUTH-03 opens the catalog to any role with `equipment.browse`; AUTH-04 keeps history and cancel open without `reservation.create`; added SQL Server race and role-matrix tests | Cataraja |
+| 10/9/2026 | Marked WBS 34.00–37.00 Done: PR #26 merged into `staging` on 10/9; ticked the Milestone 4 tasks it delivered (standalone Active Loans page not built — borrower dashboard lists current loans) | Cataraja |
